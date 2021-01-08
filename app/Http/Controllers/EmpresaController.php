@@ -14,7 +14,8 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        $empresas = Empresa::with("user")->paginate(10);
+        return view("empresas.index", compact("empresas"));
     }
 
     /**
